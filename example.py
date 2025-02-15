@@ -3,6 +3,10 @@ from flask import Flask, request, jsonify, render_template_string
 import json
 from datetime import datetime
 from memory import Memory
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Global history list to store log entries from API calls.
 HISTORY = []

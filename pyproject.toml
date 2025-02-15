@@ -38,6 +38,8 @@ dependencies = [
     "oauthlib>=3.2.2",
     "flask-login>=0.6.3",
     "flask>=3.0.3",
+    "litellm>=1.0.0",
+    "python-dotenv>=1.0.0",
 ]
 
 [project.optional-dependencies]
