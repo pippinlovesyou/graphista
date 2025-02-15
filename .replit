@@ -1,0 +1,33 @@
+modules = ["python-3.11"]
+
+[nix]
+channel = "stable-24_05"
+
+[workflows]
+runButton = "Run Tests"
+
+[[workflows.workflow]]
+name = "Run App"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python example.py"
+
+[[workflows.workflow]]
+name = "Run Tests"
+author = "agent"
+
+[workflows.workflow.metadata]
+agentRequireRestartOnSave = false
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python test_runner.py"
+
+[deployment]
+run = ["sh", "-c", "python -m pytest --cov=graphrouter"]
+
+[[ports]]
+localPort = 5000
+externalPort = 80
